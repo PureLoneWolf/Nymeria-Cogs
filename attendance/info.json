@@ -1,0 +1,12 @@
+{
+	"author": [
+		"Dave", "PureLoneWolf"
+	],
+	"description": "Allows you to output a list of all people in a voice channel, including their names, to a specified text channel, broken down by role if required.",
+	"install_msg": "Thanks for installing, enjoy.",
+	"short": "Allows you to output a list of all people in a voice channel, to a specified text channel.",
+	"tags": [
+		"bots"
+	],
+	"type": "COG"
+}

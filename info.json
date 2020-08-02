@@ -1,0 +1,13 @@
+{
+    "author": ["PureLoneWolf, Dave"],
+    "name": "Nymeria's Cogs",
+    "install_msg": "Thank you for adding my repo!\n Check `[p]cog list Nymeria` to see all my cogs!",
+    "short": "Gaming Community Cogs",
+    "description": "Cogs that help in the running of a gaming community, started for WolfLAN Gaming",
+    "tags": [
+        "information",
+        "space",
+        "statistics",
+        "images"
+    ]
+}

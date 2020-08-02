@@ -27,14 +27,14 @@ class Attendance(commands.Cog):
             await ctx.send(f"Attendance channel was set to {channel.mention}\nIf a channel is not specified in the attendance command I will output to {channel.mention}")
 
     @commands.command(name="attendance", aliases=["attend"], help="Lists all users in a voice channel and outputs them into a text channel. \n\n\n\n**Subcommands:**\n\n**attend** - outputs attendance \n**attendchan** - sets the default channel for output is no channel is specified")
-    async def _attendance(self, ctx, voice: discord.VoiceChannel, role: typing.Optional[discord.Role]=None, channel: typing.Optional[discord.TextChannel]=None, per_page: int=20):
+    async def _attendance(self, ctx, voice_channel: discord.VoiceChannel, role: typing.Optional[discord.Role]=None, output_channel: typing.Optional[discord.TextChannel]=None, per_page: int=20):
         channel_id = await self.config.guild(ctx.guild).default_channel()
-        if not channel_id and not channel:
+        if not channel_id and not output_channel:
             await ctx.send("Specify a channel or set default channel.")
             return
-        if not channel:
-            channel = self.bot.get_channel(channel_id)
-            if not channel:
+        if not output_channel:
+            output_channel = self.bot.get_channel(channel_id)
+            if not output_channel:
                 await ctx.send("Default channel is no longer valid please set a new one.")
                 return
         e = discord.Embed(color=0x0000ff, timestamp=datetime.utcnow())
@@ -47,7 +47,7 @@ class Attendance(commands.Cog):
         members = sorted(members, key=lambda x: str(x.name).casefold())
         e.set_author(name=f"Attendance Info - ({len(members)})", icon_url=ctx.guild.icon_url)
         if len(members) == 0:
-            await ctx.send("There's no one in this voice chat.")
+            await ctx.send("There's no one in this voice channel.")
             return
         page = 0
         if per_page == 0:

@@ -26,7 +26,7 @@ class Attendance(commands.Cog):
             await self.config.guild(ctx.guild).default_channel.set(channel.id)
             await ctx.send(f"Attendance channel was set to {channel.mention}\nIf a channel is not specified in the attendance command I will output to {channel.mention}")
 
-    @commands.command(name="attendance", aliases=["attend"], help="Lists all users in a voice channel and outputs them into a text channel.\n\n\n\n**Subcommands:**\n\n**attend** - outputs attendance \n**attendchan** - sets the default channel for output is no channel is specified")
+    @commands.command(name="attendance", aliases=["attend"], help="Lists all users in a voice channel and outputs them into a text channel. \n\n\n\n**Subcommands:**\n\n**attend** - outputs attendance \n**attendchan** - sets the default channel for output is no channel is specified")
     async def _attendance(self, ctx, voice: discord.VoiceChannel, role: typing.Optional[discord.Role]=None, channel: typing.Optional[discord.TextChannel]=None, per_page: int=20):
         channel_id = await self.config.guild(ctx.guild).default_channel()
         if not channel_id and not channel:
